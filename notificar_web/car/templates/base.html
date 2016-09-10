@@ -1,0 +1,73 @@
+{% extends "bootstrap_ui/bootstrap-skeleton.html" %}
+{% load i18n %}
+{% load bootstrap_ui_tags %}
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+
+{% block head-meta %}
+  {{ block.super }}
+  <meta name="keywords" content="car, manage car">
+{% endblock %}
+
+{% block head-title %}
+  NotifiCar
+{% endblock %}
+
+{% block body-content %}
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/car"><b><i class="fa fa-car"></i> NotifiCar</b></a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="{% url 'cars' %}">{% trans 'Your cars' %}<span class="sr-only">(current)</span></a></li>
+        </ul>
+
+        {% if not user.is_authenticated %}
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="{% url 'login' %}">{% trans 'Login' %}</a></li>
+          </ul>
+        {% else %}
+          <ul class="nav navbar-nav navbar-right">
+            <li><h3><span class="label label-default">{% trans 'Hello'%}, {{ user.username }}!</span></h3></li>
+            <li><a href="https://telegram.me/YourCarBot?start={{ user.username }}" target="_blank">
+                <i class='fa fa-paper-plane-o'></i> {% trans 'Check our telegram Bot!' %}</a></li>
+            <li><a href="{% url 'logout' %}">{% trans 'Logout' %}</a></li>
+          </ul>
+        {% endif %}
+
+
+      </div>
+    </div>
+  </nav>
+
+  {% container %}
+    {# Flash messages #}
+    {% row %}
+      {% block flash-messages %}
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-dismissible alert-{{message.tags}}">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <p align="center"><strong>{{message}}</strong></p>
+            </div>
+          {% endfor %}
+        {% endif %}
+      {% endblock %}
+    {% endrow %}
+
+    {% block page-content %}
+    {% endblock %}
+  {% endcontainer %}
+
+{% endblock %}
