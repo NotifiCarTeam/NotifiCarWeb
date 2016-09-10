@@ -10,22 +10,31 @@
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.models import User
 from telegram_bot.models import UserBotConversation
-from telegram_bot.views import send_message
+from telegram_bot.core import send_message, CommandHandler
 from car.models import Car
 from car import signals
 
-class StartCommand:
+
+class StartCommand(CommandHandler):
 
     NUM_OF_ARGS = 1
 
-    def handle(self, cmd_and_args, chat_id):
+    def handle(self, chat_id, username):
+        print(username)
+        # pass
+
+    def missing_arguments_message(self):
         pass
 
-class HelpCommand:
+
+class HelpCommand(CommandHandler):
 
     NUM_OF_ARGS = 0
 
-    def handle(self, cmd_and_args, chat_id):
+    def handle(self, chat_id):
+        pass
+
+    def missing_arguments_message(self):
         pass
 
 
