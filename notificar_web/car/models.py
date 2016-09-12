@@ -37,7 +37,8 @@ class Car(models.Model):
             )
         ],
         help_text=_('Do not use hyphen (-). Use only letters and numbers. Ex.: JHG1234'),
-        blank=False
+        blank=False,
+        unique=True
     )
 
     def __str__(self):

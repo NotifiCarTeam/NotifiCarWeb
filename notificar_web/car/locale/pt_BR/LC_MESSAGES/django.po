@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-07 01:51+0000\n"
+"POT-Creation-Date: 2016-09-12 04:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,138 +18,248 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
+#: car/forms.py:18
+msgid "Password"
+msgstr ""
+
+#: car/forms.py:20
+msgid "For your safety, use a minimum of 6 and maximum of 10 digits password."
+msgstr ""
+
+#: car/handlers.py:37
+msgid "It seems that you forgot to tell us your username..."
+msgstr ""
+
+#: car/handlers.py:59
+msgid ""
+"Use message_to command like this:\n"
+"\n"
+" /message_to car_license_plate message_to_send"
+msgstr ""
+
+#: car/handlers.py:87
+#, python-format
+msgid "No car with license plate %s found."
+msgstr ""
+
+#: car/handlers.py:90
+msgid "Choose a message to send to "
+msgstr ""
+
+#: car/handlers.py:108
+msgid ""
+"Use inform command like this:\n"
+"\n"
+" /inform car_license_plate"
+msgstr ""
+
 #: car/models.py:7
+msgid "Owner"
+msgstr ""
+
+#: car/models.py:9 car/templates/car/car_list.html:22
 msgid "Car model"
-msgstr "Modelo do seu carro"
+msgstr ""
 
-#: car/models.py:12
+#: car/models.py:14 car/tests.py:183
 msgid "Car model must have only alphanumeric characters"
-msgstr "O modelo do carro deve conter apenas caracteres alfanuméricos."
+msgstr ""
 
-#: car/models.py:17
+#: car/models.py:20 car/templates/car/car_list.html:23
 msgid "Car color"
-msgstr "Cor do seu carro"
+msgstr ""
 
-#: car/models.py:22
+#: car/models.py:25 car/tests.py:208
 msgid "Car color must have only alphabetical characters"
-msgstr "A cor do carro deve conter apenas caracteres alfabéticos."
-
-#: car/models.py:27
-msgid "Car year"
-msgstr "Ano do seu carro"
-
-#: car/models.py:28
-msgid "Use year as YYYY."
-msgstr "Informe o ano como YYYY."
+msgstr ""
 
 #: car/models.py:31
-msgid "Year in invalid format!"
-msgstr "O formato do ano deve ser YYYY."
+msgid "License Plate"
+msgstr ""
 
-#: car/models.py:35
-msgid "Car mileage"
-msgstr "Quilometragem do seu carro"
+#: car/models.py:36
+msgid "License plate must contain 3 letters and 4 numbers"
+msgstr ""
 
-#: car/models.py:38
-msgid "Set here your car mileage at the moment."
-msgstr "Informe aqui a quilometragem atual do seu carro."
-
-#: car/models.py:41
-msgid "Car name"
-msgstr "Nome do seu carro"
-
-#: car/models.py:46
-msgid "Car name must have only alphanumeric characters"
-msgstr "O nome do carro deve conter apenas caracteres alfanuméricos."
-
-#: car/models.py:49
-msgid "Do you name your car? We like it! Tell us the name of your.car."
-msgstr "Você dá nome para o seu carro? Nós adoramos isso!"
-
-#: car/models.py:65 car/models.py:67
-msgid "Regular gas"
-msgstr "Gasolina comum"
-
-#: car/models.py:68
-msgid "Premium gas"
-msgstr "Gasolina aditivada"
-
-#: car/models.py:69
-msgid "Alcohol"
-msgstr "Álcool"
-
-#: car/models.py:70
-msgid "Diesel"
-msgstr "Diesel"
+#: car/models.py:39
+msgid "Do not use hyphen (-). Use only letters and numbers. Ex.: JHG1234"
+msgstr ""
 
 #: car/templates/base.html:33
-msgid "Oil changes"
-msgstr "Trocas de óleo"
+msgid "Your cars"
+msgstr ""
 
-#: car/templates/base.html:34
-msgid "Refuels"
-msgstr "Abastecimentos"
+#: car/templates/base.html:38 car/templates/login.html:23
+msgid "Login"
+msgstr ""
 
-#: car/templates/base.html:38
-msgid "Search something"
-msgstr "Pesquise algo"
+#: car/templates/base.html:42
+msgid "Hello"
+msgstr ""
 
-#: car/templates/base.html:40
-msgid "Search"
-msgstr "Pesquisar"
+#: car/templates/base.html:44
+msgid "Check our telegram Bot!"
+msgstr ""
 
-#: car/templates/home.html:13
-msgid "Welcome to"
-msgstr "Bem-vindo ao"
+#: car/templates/base.html:45
+msgid "Logout"
+msgstr ""
 
-#: car/templates/home.html:14
-msgid "Keep track of your.car"
-msgstr "Mantenha o controle do seu carro"
+#: car/templates/car/car_list.html:7
+msgid "Your.cars"
+msgstr ""
 
-#: car/templates/home.html:30
-msgid "GET STARTED!"
-msgstr "COMEÇAR!"
+#: car/templates/car/car_list.html:24
+msgid "License plate"
+msgstr ""
 
-#: car/templates/home.html:43
+#: car/templates/car/car_list.html:33
+msgid "You have no cars registered at the moment."
+msgstr ""
+
+#: car/templates/car/car_list.html:37
+msgid "Create one here"
+msgstr ""
+
+#: car/templates/car/car_refuels.html:8
+msgid "refuels"
+msgstr ""
+
+#: car/templates/car/car_refuels.html:14
+msgid "New refuel"
+msgstr ""
+
+#: car/templates/car/car_refuels.html:19
+msgid "Refuel date"
+msgstr ""
+
+#: car/templates/car/car_refuels.html:20
+msgid "Car mileage"
+msgstr ""
+
+#: car/templates/car/car_refuels.html:21
+msgid "Liters"
+msgstr ""
+
+#: car/templates/car/car_refuels.html:22
+msgid "Fuel price"
+msgstr ""
+
+#: car/templates/car/car_refuels.html:23
+msgid "Total"
+msgstr ""
+
+#: car/templates/car/car_refuels.html:24
+msgid "Fuel type"
+msgstr ""
+
+#: car/templates/car/car_refuels.html:25
+msgid "Actions"
+msgstr ""
+
+#: car/templates/car/car_refuels.html:40
+#: car/templates/refuel/refuel_confirm_delete.html:8
+msgid "Delete refuel"
+msgstr ""
+
+#: car/templates/car/car_refuels.html:45
+msgid "Edit refuel"
+msgstr ""
+
+#: car/templates/car/car_refuels.html:57
+msgid "No refuels for this car at the moment."
+msgstr ""
+
+#: car/templates/car/car_refuels.html:59
+msgid "Add one here"
+msgstr ""
+
+#: car/templates/car/new_car_form.html:11
 msgid "Tell us your car info..."
-msgstr "Conte-nos os dados do seu carro..."
+msgstr ""
 
-#: car/templates/home.html:51
+#: car/templates/car/new_car_form.html:22
 msgid "Save car"
-msgstr "Pronto!"
-
-#: car/templates/home.html:66
-msgid "Keep track on your.car oil changes"
-msgstr "Controle as trocas de óleo"
-
-#: car/templates/home.html:69
-msgid ""
-"Remember the last oil change you've made is though. No need for that "
-"anymore! With your.car once you've made an oil change, just register here "
-"the date and the car mileage and we'll tell you when is time to another "
-"change."
 msgstr ""
-"Lembrar da última troca de óleo feita não é fácil. Mas isso não é necessário "
-"mais! Com your.car, uma vez que você tenha feito uma troca de óleo, apenas "
-"registre aqui a data e quilometragem do carro que nós te avisamos quando "
-"precisar trocar novamente."
 
-#: car/templates/home.html:76
-msgid "Keep track of expenses with gas"
-msgstr "Controle gastos com combustível"
-
-#: car/templates/home.html:79
-msgid ""
-"Everybody knows that gas is not cheap, so does not worth losses with that. "
-"With your.car you can track how much gas your car is spending and how much "
-"money you're spending along with it. If your.car is not economic anymore "
-"we'll let you know!"
+#: car/templates/home.html:11 car/tests.py:128
+msgid "Welcome"
 msgstr ""
-"Todo mundo sabe que combustível está caro, então não vale a pena ter "
-"prejuízos com isso. Com your.var você pode manter os registros de quanto o "
-"seu carro está gastando com combustível e quanto você acaba gastando com "
-"isso. Se o seu carro não for mais econômico como era, nós te avisamos!"
 
-#: car/templates/home.html:86
-msgid "Keep track of ---something---"
+#: car/templates/home.html:23
+msgid "Welcome to"
+msgstr ""
+
+#: car/templates/home.html:24
+msgid "Keep track of your car"
+msgstr ""
+
+#: car/templates/home.html:39 car/templates/home.html:47
+msgid "GET STARTED!"
+msgstr ""
+
+#: car/templates/home.html:52
+msgid "GET STARTED with our Telegram Bot!"
+msgstr ""
+
+#: car/templates/login.html:14
+msgid "Login..."
+msgstr ""
+
+#: car/templates/login.html:20
+msgid "Does not have an account? Signup!"
+msgstr ""
+
+#: car/templates/refuel/edit_refuel.html:7
+msgid "Update refuel for"
+msgstr ""
+
+#: car/templates/refuel/new_refuel.html:14
+msgid "New refuel for"
+msgstr ""
+
+#: car/templates/refuel/new_refuel.html:35
+msgid "Save refuel"
+msgstr ""
+
+#: car/templates/refuel/refuel_confirm_delete.html:12
+msgid "Are you sure you want to delete"
+msgstr ""
+
+#: car/templates/refuel/refuel_confirm_delete.html:13
+msgid "Confirm"
+msgstr ""
+
+#: car/templates/signup.html:14
+msgid "Signup..."
+msgstr ""
+
+#: car/templates/signup.html:22
+msgid "Signup!"
+msgstr ""
+
+#: car/tests.py:102
+msgid ""
+"Enter a valid username. This value may contain only letters, numbers and @/./"
+"+/-/_ characters."
+msgstr ""
+
+#: car/tests.py:141
+msgid ""
+"Please enter a correct username and password. Note that both fields may be "
+"case-sensitive."
+msgstr ""
+
+#: car/views.py:35
+msgid "Registered with success!"
+msgstr ""
+
+#: car/views.py:55
+msgid "Congrats! Now we are keeping your.car! Add some data about it."
+msgstr ""
+
+#: car/views.py:67
+msgid ""
+"You have some problems on your car info. Please, correct these trying to "
+"create it again."
 msgstr ""
