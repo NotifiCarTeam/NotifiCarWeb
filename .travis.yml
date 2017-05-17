@@ -1,8 +1,10 @@
 language: python
 python: 3.4
+node_js: 7.9
 env:
   - TOX_ENV=flake8
 install:
+  - npm install
   - pip install tox
 script:
   - tox
