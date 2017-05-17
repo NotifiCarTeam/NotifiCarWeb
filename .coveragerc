@@ -5,3 +5,4 @@ omit =
     *tests.py
     *wsgi.py
     .tox/*
+    *apps.py
