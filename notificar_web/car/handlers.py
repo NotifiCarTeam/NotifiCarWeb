@@ -13,7 +13,6 @@ from django.utils.translation import ugettext, ugettext_lazy as _
 from telegram_bot.models import UserBotConversation
 from telegram_bot.core import send_message, answer_callback_query, CommandHandler
 from car.models import Car
-from car import signals
 import json
 
 
