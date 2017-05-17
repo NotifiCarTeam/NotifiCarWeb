@@ -133,6 +133,7 @@ class InformCommand(CommandHandler):
     def missing_arguments_message(self):
         return "Use inform command like this:\n\n /inform car_license_plate"
 
+
 # Beyond the commons /help and /start
 SUPPORTED_COMMANDS = {
     # Map here your command classes like this:
