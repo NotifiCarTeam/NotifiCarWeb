@@ -3,8 +3,8 @@ from django.core.urlresolvers import reverse
 from django.test import TestCase
 from django.utils.translation import ugettext as _
 
-from .forms import CreateCarForm, NewUserForm
-from .models import Car
+from car.forms import CreateCarForm, NewUserForm
+from car.models import Car
 
 
 class CarViewsTestCase(TestCase):
