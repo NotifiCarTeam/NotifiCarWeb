@@ -49,3 +49,17 @@ class TestStartCommand:
     def test_missing_args_msg(self):
         msg = self.start_command.missing_arguments_message()
         assert msg == "It seems that you forgot to tell us your username..."
+
+
+class TestHelpCommand:
+
+    help_command = handlers.HelpCommand()
+
+    def test_handle(self):
+        chat_id = 1
+        self.help_command.handle(chat_id)
+        pass
+
+    def test_missing_args_msg(self):
+        self.help_command.missing_arguments_message()
+        pass
