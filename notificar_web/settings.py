@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'bootstrap3',
     'car',
     'telegram_bot',
+    'behave_django',
 ]
 
 MIDDLEWARE_CLASSES = [

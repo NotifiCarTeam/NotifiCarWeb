@@ -90,3 +90,6 @@ ENV/
 
 # SQLite database
 *.sqlite3
+
+# Node dependencies
+node_modules/
