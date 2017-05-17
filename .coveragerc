@@ -1,0 +1,7 @@
+[run]
+omit =
+    manage.py
+    */migrations/*
+    *tests.py
+    *wsgi.py
+    .tox/*
