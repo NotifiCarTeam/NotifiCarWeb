@@ -1,10 +1,10 @@
-from django.http import HttpResponse, Http404
-from django.views.generic import View
-from django.core.exceptions import ObjectDoesNotExist
-from django.conf import settings
-from .models import UserBotConversation
-from .core import send_message
 import json
+
+from django.conf import settings
+from django.http import HttpResponse
+from django.views.generic import View
+
+from .core import send_message
 
 
 class BotFacade(View):
@@ -30,7 +30,9 @@ class BotFacade(View):
                 self.handle_command(user_input, chat_id)
                 response = HttpResponse('OK')
             else:
-                response = HttpResponse('Not text requests not supported at the moment')
+                response = HttpResponse(
+                    'Not text requests not supported at the moment'
+                )
         elif 'callback_query' in request_dict:
             """ In this case is callback from a inline button request """
             query = request_dict['callback_query']
@@ -63,7 +65,8 @@ class BotFacade(View):
 
     def extract_command_args(self, user_input):
         import re
-        # The command starts with a forward slash (/) and may have up to 32 characters
+        # The command starts with a forward slash (/)
+        # and may have up to 32 characters
         command_re = re.compile(r'^/([a-zA-Z0-9_]{1,31})')
         re_match = command_re.match(user_input)
 
@@ -88,11 +91,14 @@ class BotFacade(View):
         elif command == self.HELP_COMMAND:
             handler = bot_handlers_module.handlers.HelpCommand()
         elif command in bot_handlers_module.handlers.SUPPORTED_COMMANDS:
-            handler = bot_handlers_module.handlers.SUPPORTED_COMMANDS[command]()
+            handler = bot_handlers_module\
+                .handlers\
+                .SUPPORTED_COMMANDS[command]()
         else:
             # It is not a recognized command
             handler = None
         return handler
 
+
 def bot_facade():
-  return BotFacade.as_view()
+    return BotFacade.as_view()
