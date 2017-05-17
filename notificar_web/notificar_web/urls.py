@@ -29,5 +29,4 @@ urlpatterns = [
     url(r'^signup', car_views.SignUpView.as_view(), name="signup"),
     url(r'^car/', include('car.urls')),
     url(r'^bot$', bot_views.bot_facade()),
-    url(r'^api/', include('car.rest_urls')),
 ]
