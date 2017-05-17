@@ -63,3 +63,19 @@ class TestHelpCommand:
     def test_missing_args_msg(self):
         self.help_command.missing_arguments_message()
         pass
+
+
+class TestMessageToCommand:
+
+    msg_to_command = handlers.MessageToCommand()
+
+    def test_handle(self):
+        chat_id = 1
+        plate = 'ABC1234'
+        msg = 'Some message'
+        self.msg_to_command.handle(chat_id, plate, msg)
+
+    def test_missing_args_msg(self):
+        msg = self.msg_to_command.missing_arguments_message()
+        assert msg == "Use message_to command like this:\n\n \
+                /message_to car_license_plate message_to_send"
