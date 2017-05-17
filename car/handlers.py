@@ -17,10 +17,9 @@ from car.models import Car
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 
-
+from telegram_bot.core import BotRequest
 from telegram_bot.core import CommandHandler
-from telegram_bot.core import answer_callback_query
-from telegram_bot.core import send_message
+
 from telegram_bot.models import UserBotConversation
 
 
@@ -29,7 +28,6 @@ class StartCommand(CommandHandler):
     NUM_OF_ARGS = 1
 
     def handle(self, chat_id, username):
-        print(username)
         try:
             user = User.objects.get(username=username)
             # Save the user chat_id
@@ -42,7 +40,7 @@ class StartCommand(CommandHandler):
             text = 'This user is not registered in NotifiCar.'
 
         message = {'chat_id': chat_id, 'text': text}
-        send_message(message)
+        BotRequest.send_message(message)
 
     def missing_arguments_message(self):
         return "It seems that you forgot to tell us your username..."
@@ -105,14 +103,15 @@ class InformCommand(CommandHandler):
             car = Car.objects.get(license_plate=plate)
             msg = 'Choose a message to send to %s' % car.owner.username
             options_keyboard = self.get_keyboard_options(car)
-            send_message({
+            BotRequest.send_message({
                 'chat_id': chat_id,
                 'text': msg,
                 'reply_markup': options_keyboard
             })
         except Car.DoesNotExist:
             exception_msg = 'No car with license plate %s found.' % plate
-            send_message({'chat_id': chat_id, 'text': exception_msg})
+            message = {'chat_id': chat_id, 'text': exception_msg}
+            BotRequest.send_message(message)
 
     def handle_callback_query(self, query_id, car, option, cmd=False):
         found_car = Car.objects.get(pk=car)
@@ -125,10 +124,10 @@ class InformCommand(CommandHandler):
                 msg = option_msg
 
         if msg is not None:
-            send_message({'chat_id': chat_id, 'text': msg})
+            BotRequest.send_message({'chat_id': chat_id, 'text': msg})
             confirmation_msg = 'User %s (owner of %s) has been notified!'\
                 % (found_car.owner.username, found_car.license_plate)
-            answer_callback_query(query_id, confirmation_msg, True)
+            BotRequest.answer_callback_query(query_id, confirmation_msg, True)
 
     def missing_arguments_message(self):
         return "Use inform command like this:\n\n /inform car_license_plate"

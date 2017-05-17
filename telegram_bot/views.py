@@ -4,7 +4,7 @@ from django.conf import settings
 from django.http import HttpResponse
 from django.views.generic import View
 
-from .core import send_message
+from .core import BotRequest
 
 
 class BotFacade(View):
@@ -61,7 +61,7 @@ class BotFacade(View):
                 missing_args_msg = handler.missing_arguments_message()
                 if missing_args_msg is not None:
                     message = {'chat_id': chat_id, 'text': missing_args_msg}
-                    send_message(message)
+                    BotRequest.send_message(message)
 
     def extract_command_args(self, user_input):
         import re

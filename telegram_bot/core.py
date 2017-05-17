@@ -3,24 +3,29 @@ from django.conf import settings
 import requests
 
 
-def send_message(message):
-    requests.post(
-        'https://api.telegram.org/bot%s/sendMessage' % settings.BOT_TOKEN,
-        data=message
-    )
+class BotRequest:
+    """ Contains functions to make specific requests to the bot
+    """
 
+    @classmethod
+    def send_message(cls, message):
+        requests.post(
+            'https://api.telegram.org/bot%s/sendMessage' % settings.BOT_TOKEN,
+            data=message
+        )
 
-def answer_callback_query(query_id, message, alert=False):
-    data = {
-        'callback_query_id': query_id,
-        'text': message,
-        'show_alert': alert
-    }
-    requests.post(
-        'https://api.telegram.org/bot%s/answerCallbackQuery'
-        % settings.BOT_TOKEN,
-        data=data
-    )
+    @classmethod
+    def answer_callback_query(cls, query_id, message, alert=False):
+        data = {
+            'callback_query_id': query_id,
+            'text': message,
+            'show_alert': alert
+        }
+        requests.post(
+            'https://api.telegram.org/bot%s/answerCallbackQuery'
+            % settings.BOT_TOKEN,
+            data=data
+        )
 
 
 class CommandHandler:
