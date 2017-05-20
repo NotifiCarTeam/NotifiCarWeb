@@ -1,14 +1,14 @@
-""" Telegram Bot Handlers file
+"""
+Telegram Bot Handlers file.
 
-    This file must contain the command classes
-    to handle the bot requests.
+This file must contain the command classes
+to handle the bot requests.
 
-    There are two mandatory commands you MUST
-    implement: StartCommand and HelpCommand.
+There are two mandatory commands you MUST
+implement: StartCommand and HelpCommand.
 
-    The other commands your bot may have,
-    declare them on SUPPORTED_COMMANDS dict in the end of the file.
-
+The other commands your bot may have,
+declare them on SUPPORTED_COMMANDS dict in the end of the file.
 """
 import json
 
