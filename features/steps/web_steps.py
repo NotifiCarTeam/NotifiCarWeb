@@ -20,6 +20,12 @@ def step_impl(context, url):
 def step_impl(context, link):
     context.driver.find_element_by_link_text(link).click()
 
+@when(u'I click in "{link}" in modal')
+def step_impl(context, link):
+    WebDriverWait(context.driver, 10).until( \
+        EC.visibility_of_element_located((By.LINK_TEXT, link)) \
+    ).click()
+
 
 @when(u'I click in "{button_id}" button')
 def step_impl(context, button_id):
