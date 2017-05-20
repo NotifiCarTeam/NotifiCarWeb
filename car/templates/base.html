@@ -35,12 +35,12 @@
 
         {% if not user.is_authenticated %}
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="{% url 'login' %}">{% trans 'Login' %}</a></li>
+            <li><a id="login_link" href="{% url 'login' %}">{% trans 'Login' %}</a></li>
           </ul>
         {% else %}
           <ul class="nav navbar-nav navbar-right">
             <li><h3><span class="label label-default">{% trans 'Hello'%}, {{ user.username }}!</span></h3></li>
-            <li><a href="https://telegram.me/YourCarBot?start={{ user.username }}" target="_blank">
+            <li><a href="https://telegram.me/NotifiCarBot?start={{ user.username }}" target="_blank">
                 <i class='fa fa-paper-plane-o'></i> {% trans 'Check our telegram Bot!' %}</a></li>
             <li><a href="{% url 'logout' %}">{% trans 'Logout' %}</a></li>
           </ul>
